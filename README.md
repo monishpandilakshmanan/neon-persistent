@@ -36,3 +36,12 @@ Install Node.js 20+, run `npm install`, copy `.env.example` to `.env` and fill i
 - The public demo endpoints accept display names, not passwords. Since this is a public demo without user accounts, display names are not verified identities and can be reused/impersonated. Do not use these records for access control or rewards payouts.
 - This simple implementation does not include durable IP-based rate limiting. If you expect public traffic, add a managed rate limiter and abuse monitoring before promoting it broadly.
 - The admin endpoint returns at most the latest 500 activity and 500 task rows.
+
+
+## Latest UI/task update
+- Added a smooth full-page Roblox image slideshow (changes every 5 seconds) using the supplied images.
+- Updated the four demo game cards to Blox Fruits, Rivals, Steal an Egg, and JJS.
+- Task progress rules are server-calculated and saved in PostgreSQL: Blox Fruits +2%/2 min (task description: play 1 hour); Rivals +5%/10 min (reach level 90); Steal an Egg +10%/20 min (collect 5 cosmic eggs); JJS +20%/30 min (use Noya to eliminate 12 members).
+- Every displayed reward is labelled as a demo reward; no actual Robux are granted.
+- Admin login has animated access-denied glitch and success welcome overlay. Correct admin password is validated server-side via ADMIN_PASSWORD; do not hardcode secrets in the repository.
+- Node.js engine pinned to 22.x.
